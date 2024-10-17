@@ -9,10 +9,10 @@ export default defineShortcutsSetup((nav: NavOperations, base: ShortcutOptions[]
       fn: () => nav.next(),
       autoRepeat: true,
     },
-    {
-      key: 'up',
-      fn: () => nav.prev(),
-      autoRepeat: true,
-    },
+    // {
+    //   key: 'up',
+    //   fn: () => nav.prev(),
+    //   autoRepeat: true,
+    // },
   ]
 })

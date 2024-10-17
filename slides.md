@@ -619,17 +619,6 @@ layout: thank-you
 title: 'Immutable Data Structures'
 layout: intro
 background: '/img/intro-immutable-tree.png'
-# Presentation Setup (for all option see: https://sli.dev/custom/#frontmatter-configures)
-theme: ./theme
-class: 'text-center'
-highlighter: shiki # https://sli.dev/custom/highlighters.html
-lineNumbers: true # show line numbers in code blocks
-drawings:
-  persist: false # persist drawings in exports and build
-transition: none # no transition for better online screen sharing - or use "slide-left"
-css: unocss
-mdc: true # enable "Markdown Components" syntax: https://sli.dev/guide/syntax#mdc-syntax
-routerMode: hash # more compatible with static site hosting
 ---
 
 ::date::
