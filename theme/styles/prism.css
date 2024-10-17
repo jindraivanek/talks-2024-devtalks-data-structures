@@ -4,12 +4,13 @@
 
 :root {
   --prism-font-family: var(--slidev-code-font-family);
+  --prism-font-size: 1.2em;
   --slidev-code-background: var(--prism-background);
 }
 
 html:not(.dark) {
   --prism-foreground: #393a34;
-  --prism-background: #dfdfdf;
+  --prism-background: #efefef;
   --prism-comment: #a0ada0;
   --prism-string: #b56959;
   --prism-literal: #2f8a89;

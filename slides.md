@@ -41,7 +41,7 @@ Note
 
 <v-clicks>
 
-- mutation is common source of bugs
+- mutation is a common source of bugs
 - immutable data are easier to reason about
   - value passed to a function, can't be changed
   - easier refactoring
@@ -103,7 +103,7 @@ let account = { Money = 1000 }
 MYTH: to "change" immutable value, you need to copy the whole thing
 
 <Transform :scale="0.7">
-</img src ="/img/meme.jpg"/>
+<img src ="/img/meme.jpg"/>
 </Transform>
 
 <!--
@@ -205,9 +205,18 @@ Git in principle is just linked list (with few more features) and branches are j
 ---
 layout: two-columns
 ---
+
+<style>
+.small-code {
+  --prism-font-size: 1em;
+}
+</style>
+
 ::left::
 
 # List Benchmark
+
+<div class="small-code">
 
 ```fsharp
 member this.FsListWorkload() =
@@ -226,6 +235,8 @@ member this.CsListWorkload() =
     let x = csList.Sum(fun x -> int64 x.Id)
     x
 ```
+
+</div>
 
 ::right::
 
@@ -263,9 +274,9 @@ We can see that immutable list is slower, but not much.
 ---
 
 # Set
-Unordered set of values
+- unordered set of values
 
-Typically implemented as a balanced tree (AVL)
+- typically implemented as a balanced tree (AVL)
 
 ```fsharp
 let s = [11; 20; 29; 32; 41; 50; 65; 72; 91; 99] |> set
@@ -419,8 +430,8 @@ Immutable Set is on par with mutable HashSet for contains operation. It's slower
 ---
 
 # Map
-* Dictionary like immutable data structure
-* Like `Set`, but with value linked with each key (node)
+- dictionary like immutable data structure
+- like `Set`, but with value linked with each key (node)
 
 <Transform :scale="0.7">
 
@@ -555,6 +566,10 @@ Values are linked to keys through references. That means that even if we changin
 
 # Map Benchmark
 
+Immutable `Map` / mutable `Dictionary`
+
+<Transform :scale="0.7">
+
 | Method                 | size   | Time Ratio | Memory Ratio |
 | ---------------------- | ------ | ---------: | ------: |
 | 'containsKey'          | 100    |       1.08 |    1.01 |
@@ -566,6 +581,13 @@ Values are linked to keys through references. That means that even if we changin
 | 'create + containsKey' | 10000  |       1.79 |    2.61 |
 | 'create + containsKey' | 100000 |       2.19 |    3.13 |
 
+</Transform>
+
+---
+layout: thank-you
+---
+
+# Thank you!
 
 ---
 
@@ -575,14 +597,14 @@ Values are linked to keys through references. That means that even if we changin
 { Id: int; Name: string; Data: BigObject }
 ```
 
-- Immutable by default
-- No special immutable structure
-- Update syntax create new record with not-changed fields shared with old record
+- immutable by default
+- no special immutable structure
+- update syntax creates new record with not-changed fields shared with old record
   - ```fsharp
     { oldRecord with Name = "Bob" }
     ```
   - only reference is copied
-  - Data is shared
+  - `Data` is shared
 
 ---
 
@@ -590,12 +612,35 @@ Values are linked to keys through references. That means that even if we changin
 
 - definition of equality based on values, not references
 - all F# data types have defined structural comparison and ordering
-- Immutability and structural comparison are different features, but it is common that immutable data structures have defined structural comparison
+- immutability and structural comparison are different features, but it is common that immutable data structures have defined structural comparison
   - same value with different references is more common when working with immutable data structures
 
-
 ---
-layout: thank-you
+title: 'Immutable Data Structures'
+layout: intro
+background: '/img/intro-immutable-tree.png'
+# Presentation Setup (for all option see: https://sli.dev/custom/#frontmatter-configures)
+theme: ./theme
+class: 'text-center'
+highlighter: shiki # https://sli.dev/custom/highlighters.html
+lineNumbers: true # show line numbers in code blocks
+drawings:
+  persist: false # persist drawings in exports and build
+transition: none # no transition for better online screen sharing - or use "slide-left"
+css: unocss
+mdc: true # enable "Markdown Components" syntax: https://sli.dev/guide/syntax#mdc-syntax
+routerMode: hash # more compatible with static site hosting
 ---
 
-# Thank you!
+::date::
+DevTalks 18.10.2024
+
+::title::
+# Immutable Data Structures
+
+::description::
+<div><strong>Jindřich Ivánek</strong></div>
+<div>F# Expert at Ciklum</div>
+<div><a href="jindraivanek.hashnode.dev">jindraivanek.hashnode.dev</a></div>
+
+
