@@ -70,7 +70,7 @@ As a bonus we got the ability to store history of changes in memory efficient wa
 <v-clicks>
 
 <!-- ### Mutable -->
-```csharp {2|5|3-6|8-9|all}
+```csharp {1,2,7|5|3-6|8-9|all}
 public class Account {
     public decimal Money { get; set; } // mutable data
     public void Pay(decimal amount) // race condition
@@ -154,7 +154,6 @@ let listA = [1; 2; 3]
 let listA = 1 :: 2 :: 3 :: []
 let listA2 = listA
 let listB = 4 :: listA
-let listB2 = [4] @ listA
 ```
 
 <!-- ![width:1000px](/img/linked_list_sharing.png) -->
@@ -164,7 +163,6 @@ graph LR
 A("listA") --> 1 --> 2 --> 3 --> Nil("[]")
 A2("listA2") --> 1
 B("listB") --> 4 --> 1
-B2("listB2") --> 4
 ```
 
 <!--
